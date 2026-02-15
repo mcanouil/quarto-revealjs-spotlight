@@ -23,8 +23,7 @@ options:
     description: "Whether to toggle the spotlight on and off by holding down the mouse button."
   spotlightOnKeyPressAndHold:
     type: number
-    default: false
-    description: "Key code to press and hold to activate the spotlight. Set to false to disable."
+    description: "Key code to press and hold to activate the spotlight. Omit or set to false to disable."
   spotlightCursor:
     type: string
     default: "none"
