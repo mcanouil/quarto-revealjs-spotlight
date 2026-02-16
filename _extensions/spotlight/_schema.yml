@@ -1,0 +1,57 @@
+# _schema.yml for "spotlight" revealjs-plugin extension
+# Describes plugin options for IDE tooling and runtime validation.
+
+# Extension-level metadata options.
+# Configured in _quarto.yml, _metadata.yml, or document front matter under:
+#   revealjs-plugins:
+#     - spotlight
+# With configuration under:
+#   spotlight:
+#     size: 60
+options:
+  size:
+    type: number
+    default: 60
+    description: "Radius of the spotlight circle in pixels."
+  lockPointerInsideCanvas:
+    type: boolean
+    default: false
+    description: "Whether to lock the mouse pointer inside the presentation canvas using the Pointer Lock API."
+  toggleSpotlightOnMouseDown:
+    type: boolean
+    default: true
+    description: "Whether to toggle the spotlight on and off by holding down the mouse button."
+  spotlightOnKeyPressAndHold:
+    type: [boolean, number]
+    default: false
+    description: "Whether to activate the spotlight on key press and hold. Set to false to disable, or use a key code number to bind to a specific key."
+  spotlightCursor:
+    type: string
+    default: "none"
+    description: "CSS cursor style when the spotlight is active (e.g., 'crosshair', 'none')."
+  presentingCursor:
+    type: string
+    default: "none"
+    description: "CSS cursor style when in presentation mode with the spotlight off (e.g., 'default', 'none')."
+  initialPresentationMode:
+    type: boolean
+    default: true
+    description: "Whether to start in presentation mode. Defaults to true when toggleSpotlightOnMouseDown is enabled."
+  disablingUserSelect:
+    type: boolean
+    default: true
+    description: "Whether to disable text selection in presentation mode."
+  fadeInAndOut:
+    type: [number, boolean]
+    default: 100
+    description: "Transition duration in milliseconds for spotlight fade effects. Set to 0 or false to disable."
+  useAsPointer:
+    type: boolean
+    default: false
+    description: "Whether to use the spotlight as a coloured pointer instead of a spotlight circle."
+  pointerColor:
+    type: string
+    default: "red"
+    description: "Colour of the pointer when useAsPointer is enabled."
+    completion:
+      type: color
