@@ -22,9 +22,8 @@ options:
     default: true
     description: "Whether to toggle the spotlight on and off by holding down the mouse button."
   spotlightOnKeyPressAndHold:
-    type: boolean
     default: false
-    description: "Whether to activate the spotlight on key press and hold. Set to false to disable, or use a key code number to bind to a specific key."
+    description: "Whether to activate the spotlight on key press and hold. Set to false to disable, or use a key code number to bind to a specific key. Accepts boolean or number."
   spotlightCursor:
     type: string
     default: "none"
@@ -42,9 +41,8 @@ options:
     default: true
     description: "Whether to disable text selection in presentation mode."
   fadeInAndOut:
-    type: number
     default: 100
-    description: "Transition duration in milliseconds for spotlight fade effects. Set to 0 or false to disable."
+    description: "Transition duration in milliseconds for spotlight fade effects. Set to 0 or false to disable. Accepts number or boolean."
   useAsPointer:
     type: boolean
     default: false
