@@ -1,6 +1,6 @@
 {
 	"Spotlight config": {
-		"prefix": "spotlight-config",
+		"prefix": "meta",
 		"body": [
 			"revealjs-plugins:",
 			"  - spotlight",
