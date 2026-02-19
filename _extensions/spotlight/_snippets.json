@@ -1,0 +1,13 @@
+{
+	"Spotlight config": {
+		"prefix": "meta",
+		"body": [
+			"revealjs-plugins:",
+			"  - spotlight",
+			"spotlight:",
+			"  size: ${1:60}",
+			"  toggleSpotlightOnMouseDown: ${2:true}"
+		],
+		"description": "Configure the spotlight Reveal.js plugin"
+	}
+}
