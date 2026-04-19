@@ -6,8 +6,8 @@ authors:
   - family-names: "Canouil"
     given-names: "Mickaël"
     orcid: "https://orcid.org/0000-0002-3396-4549"
-repository-code: "https://github.com/mcanouil/quarto-spotlight"
-url: "http://m.canouil.dev/quarto-spotlight/"
+repository-code: "https://github.com/mcanouil/quarto-revealjs-spotlight"
+url: "http://m.canouil.dev/quarto-revealjs-spotlight/"
 license: "MIT"
 date-released: "2026-02-21"
 version: 1.2.0

@@ -1,7 +1,7 @@
 blank_issues_enabled: true
 contact_links:
   - name: Support
-    url: https://github.com/mcanouil/quarto-spotlight/discussions
+    url: https://github.com/mcanouil/quarto-revealjs-spotlight/discussions
     about: Please ask and answer questions here.
   - name: Issue with Quarto CLI
     url: https://github.com/quarto-dev/quarto-cli
