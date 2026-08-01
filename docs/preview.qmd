@@ -1,6 +1,7 @@
 ---
 title: "Spotlight in a deck"
 subtitle: "Hold the mouse button down"
+description: "A RevealJS deck with the spotlight plugin enabled, so the spotlight can be tried with the mouse."
 format:
   revealjs:
     theme: default

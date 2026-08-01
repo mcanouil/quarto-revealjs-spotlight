@@ -5,6 +5,7 @@ description: "Spotlight configurations for a room, a stream, and a bright projec
 ---
 
 The [preview deck](preview.html) is built by this site with the first of these.
+A spotlight is a thing that moves, so the deck is the only place any of this can be judged: open it and hold the mouse button down.
 
 ## A spotlight for a recording
 
@@ -45,7 +46,8 @@ format:
 ```
 
 Useful with a presenter remote that sends a key rather than a click.
-The value is a key code; `false` disables the behaviour.
+The value is a legacy `keyCode`, so 73 is <kbd>I</kbd>; `false` disables the behaviour.
+The deck still has to be in presentation mode for the key to reach the plugin.
 
 ## Keeping the pointer on the slide
 

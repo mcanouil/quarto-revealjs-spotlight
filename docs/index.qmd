@@ -65,4 +65,4 @@ RevealJS.
 - [Changelog](changelog.qmd) for what each release changed.
 - [Source and issues](https://github.com/mcanouil/quarto-revealjs-spotlight) on GitHub.
 
-Built on [Reveal.js](https://github.com/hakimel/reveal.js).
+The plugin itself is Dennis Kniep's [reveal.js-plugin-spotlight](https://github.com/denniskniep/reveal.js-plugin-spotlight), packaged for [Reveal.js](https://github.com/hakimel/reveal.js) under Quarto.
