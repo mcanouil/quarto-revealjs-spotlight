@@ -49,6 +49,8 @@ Then hold the mouse button down while presenting.
 
 The [preview deck](preview.html) is built by this site.
 
+![](preview.html){.embed-art loading="lazy" title="A deck to try the spotlight on" style="--atelier-embed-art-ratio: 1.78;"}
+
 See the [Reference](reference.qmd) for every option, and the [Examples](examples.qmd) for the configurations worth knowing.
 
 ## Where it works
