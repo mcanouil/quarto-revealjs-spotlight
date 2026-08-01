@@ -1,0 +1,75 @@
+---
+title: "Examples"
+subtitle: "The configurations worth knowing."
+description: "Spotlight configurations for a room, a stream, and a bright projector, with what each changes."
+---
+
+The [preview deck](preview.html) is built by this site with the first of these.
+
+## A spotlight for a recording
+
+```yaml
+format:
+  revealjs:
+    spotlight:
+      size: 90
+      presentingCursor: "default"
+revealjs-plugins:
+  - spotlight
+```
+
+A larger radius reads better once a slide is scaled down into a video frame, and keeping an ordinary cursor visible means the audience can follow the pointer even when the spotlight is off.
+
+## A coloured pointer for a bright room
+
+```yaml
+format:
+  revealjs:
+    spotlight:
+      useAsPointer: true
+      pointerColor: "#b22222"
+      size: 30
+```
+
+Dimming works badly on a washed-out projector.
+`useAsPointer` draws a coloured dot instead, which survives the room.
+
+## Triggered by a key rather than the mouse
+
+```yaml
+format:
+  revealjs:
+    spotlight:
+      toggleSpotlightOnMouseDown: false
+      spotlightOnKeyPressAndHold: 73
+```
+
+Useful with a presenter remote that sends a key rather than a click.
+The value is a key code; `false` disables the behaviour.
+
+## Keeping the pointer on the slide
+
+```yaml
+format:
+  revealjs:
+    spotlight:
+      lockPointerInsideCanvas: true
+```
+
+Holds the pointer inside the presentation on a multi-monitor setup, through the Pointer Lock API.
+A browser may refuse it without a user gesture first.
+
+## Turning off the fade
+
+```yaml
+format:
+  revealjs:
+    spotlight:
+      fadeInAndOut: 0
+```
+
+The spotlight then appears and disappears at once, which some find easier to follow than a fade.
+
+## Source
+
+The repository ships a short, standalone starting point you can copy: [`example.qmd`](https://github.com/mcanouil/quarto-revealjs-spotlight/blob/main/example.qmd).

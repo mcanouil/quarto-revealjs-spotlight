@@ -1,2 +1,3 @@
 *.html
-*_files/
+*_files//.quarto/
+**/*.quarto_ipynb

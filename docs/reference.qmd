@@ -1,0 +1,43 @@
+---
+title: "Reference"
+subtitle: "Every option the spotlight plugin accepts."
+description: "The complete spotlight configuration: the size, the cursors, how it is triggered, and the coloured-pointer mode."
+---
+
+## Enabling the plugin
+
+```yaml
+format:
+  revealjs:
+    spotlight:
+      size: 60
+revealjs-plugins:
+  - spotlight
+```
+
+Options sit under a `spotlight` key inside the `revealjs` format.
+The names are the plugin's own, so they are camel case rather than Quarto's usual hyphenated style.
+
+## Options
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `size` | `60` | Radius of the spotlight, in pixels. |
+| `toggleSpotlightOnMouseDown` | `true` | Turn the spotlight on by holding the mouse button. |
+| `spotlightOnKeyPressAndHold` | `false` | A key code to hold instead. `false` disables it. |
+| `lockPointerInsideCanvas` | `false` | Keep the pointer inside the presentation, through the Pointer Lock API. |
+| `spotlightCursor` | `none` | The cursor while the spotlight is on. |
+| `presentingCursor` | `none` | The cursor while presenting with the spotlight off. |
+| `initialPresentationMode` | `true` | Start in presentation mode. Implied when the mouse toggle is on. |
+| `disablingUserSelect` | `true` | Disable text selection in presentation mode. |
+| `fadeInAndOut` | `100` | Fade duration in milliseconds. `0` or `false` disables it. |
+| `useAsPointer` | `false` | Draw a coloured dot rather than dimming the slide. |
+| `pointerColor` | `red` | The colour of that dot. |
+
+: Options under `spotlight`. {.striped .hover tbl-colwidths="[30,12,58]"}
+
+## Limitations
+
+- RevealJS only.
+- The spotlight is drawn in the browser, so it does not survive a PDF export.
+- `lockPointerInsideCanvas` uses the Pointer Lock API, which a browser may refuse without a user gesture.

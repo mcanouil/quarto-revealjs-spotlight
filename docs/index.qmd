@@ -1,0 +1,66 @@
+---
+title: "RevealJS Spotlight"
+subtitle: "Dim the slide around the pointer."
+description: "What the spotlight plugin does, how to enable it, and how to make it a coloured pointer instead."
+authors:
+  - name: "Mickaël CANOUIL, _Ph.D._"
+    orcid: "0000-0002-3396-4549"
+    url: "https://mickael.canouil.fr"
+---
+
+A laser pointer works in a room and nowhere else: it is invisible on a stream, and gone from the recording.
+
+`spotlight` does the same job in the browser.
+Hold the mouse button down and the slide dims around the pointer, so an audience follows what the speaker is pointing at, whether they are in the room or watching later.
+
+## Installation
+
+```bash
+quarto add {{< var extension.reference >}}
+```
+
+This will install the extension under the `_extensions` subdirectory.
+If you are using version control, you will want to check in this directory.
+
+Or install it from your editor with [Quarto Wizard](https://m.canouil.dev/quarto-wizard):
+
+::: {.btn-group role="group" aria-label="Quarto Wizard installer options"}
+
+[Visual Studio Code](vscode://mcanouil.quarto-wizard/install?repo={{< var extension.wizard-reference >}}){.btn .btn-outline-primary title="Install {{< var extension.reference >}} in Visual Studio Code using the Quarto Wizard extension."}
+[Positron](positron://mcanouil.quarto-wizard/install?repo={{< var extension.wizard-reference >}}){.btn .btn-outline-primary title="Install {{< var extension.reference >}} in Positron using the Quarto Wizard extension."}
+[VSCodium](vscodium://mcanouil.quarto-wizard/install?repo={{< var extension.wizard-reference >}}){.btn .btn-outline-primary title="Install {{< var extension.reference >}} in VSCodium using the Quarto Wizard extension."}
+
+:::
+
+## Quick start
+
+```yaml
+format:
+  revealjs:
+    spotlight:
+      size: 90
+revealjs-plugins:
+  - spotlight
+```
+
+Then hold the mouse button down while presenting.
+
+## Try it
+
+The [preview deck](preview.html) is built by this site.
+
+See the [Reference](reference.qmd) for every option, and the [Examples](examples.qmd) for the configurations worth knowing.
+
+## Where it works
+
+RevealJS.
+
+## Links
+
+- [Reference](reference.qmd) for every option.
+- [Examples](examples.qmd) for the useful configurations.
+- [Preview deck](preview.html) to try it.
+- [Changelog](changelog.qmd) for what each release changed.
+- [Source and issues](https://github.com/mcanouil/quarto-revealjs-spotlight) on GitHub.
+
+Built on [Reveal.js](https://github.com/hakimel/reveal.js).

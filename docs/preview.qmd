@@ -1,0 +1,29 @@
+---
+title: "Spotlight in a deck"
+subtitle: "Hold the mouse button down"
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    spotlight:
+      size: 90
+      presentingCursor: "default"
+revealjs-plugins:
+  - spotlight
+---
+
+## Try it
+
+Hold the mouse button down and move the pointer: the slide dims around it.
+
+This deck sets a spotlight of 90 pixels, and keeps an ordinary cursor visible when the spotlight is off.
+
+## Why it helps
+
+- A room watching a projected slide cannot see a laser pointer on a stream.
+- A recording keeps the spotlight, and keeps nothing of a laser.
+- Nothing has to be drawn on the slide in advance.
+
+## As a coloured pointer instead
+
+Set `useAsPointer: true` and the plugin draws a coloured dot rather than dimming the slide, which suits a bright room better.
