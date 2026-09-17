@@ -72,6 +72,94 @@ format:
 
 The spotlight then appears and disappears at once, which some find easier to follow than a fade.
 
+## A crosshair while the spotlight is on
+
+```yaml
+format:
+  revealjs:
+    spotlight:
+      spotlightCursor: "crosshair"
+      presentingCursor: "default"
+```
+
+`spotlightCursor` applies only while the spotlight is on, and `presentingCursor` applies the rest of the time.
+This pair shows an ordinary cursor while you talk, then a crosshair at the centre of the lit circle while you hold the mouse button down.
+The value goes straight into the `cursor` style of the page, so any CSS cursor keyword works.
+`lockPointerInsideCanvas` overrides both, because the Pointer Lock API hides the pointer itself.
+
+## A deck whose text stays selectable
+
+```yaml
+format:
+  revealjs:
+    spotlight:
+      disablingUserSelect: false
+```
+
+The plugin turns text selection off when the deck enters [presentation mode](reference.html#presentation-mode), and turns it back on when the deck leaves.
+A deck that never leaves presentation mode therefore keeps its text unselectable from the first slide to the last, code blocks included.
+Set `disablingUserSelect` to `false` and the plugin leaves selection alone.
+Nothing else changes: presentation mode still sets the cursor from `presentingCursor`, and the mouse button still turns the spotlight on.
+
+## A deck that starts as an ordinary page
+
+```yaml
+format:
+  revealjs:
+    include-after-body: presentation-mode.html
+    spotlight:
+      initialPresentationMode: false
+```
+
+`initialPresentationMode: false` starts the deck outside presentation mode.
+The cursor stays visible, the text stays selectable, and neither the mouse button nor the held key turns the spotlight on.
+The deck therefore reads as an ordinary web page until you ask for the spotlight.
+`RevealSpotlight.togglePresentationMode()` is the only way in, so give the deck a control of its own.
+Save this as `presentation-mode.html` beside the deck:
+
+```html
+<script>
+  window.addEventListener("keydown", function (event) {
+    if (event.altKey && event.code === "KeyP") {
+      RevealSpotlight.togglePresentationMode();
+    }
+  });
+</script>
+```
+
+<kbd>Alt</kbd>+<kbd>P</kbd> then switches presentation mode on and off.
+Pick a key the deck does not already use.
+The listener reads `event.code`, which a modifier key does not change.
+
+## A spotlight that stays on
+
+```yaml
+format:
+  revealjs:
+    include-after-body: latching-spotlight.html
+    spotlight:
+      toggleSpotlightOnMouseDown: false
+      presentingCursor: "default"
+```
+
+A held mouse button suits a quick gesture, not a long explanation.
+`RevealSpotlight.toggleSpotlight()` switches the spotlight and leaves it there.
+Save this as `latching-spotlight.html` beside the deck:
+
+```html
+<script>
+  window.addEventListener("keydown", function (event) {
+    if (event.altKey && event.code === "KeyS") {
+      RevealSpotlight.toggleSpotlight();
+    }
+  });
+</script>
+```
+
+The plugin draws the spotlight at the last pointer position it saw, so move the pointer once after the deck loads.
+This call does not test presentation mode, and it hands the cursor back to `presentingCursor` every time it switches the spotlight off.
+Give `presentingCursor` a visible value, as above, if the deck can also be outside presentation mode.
+
 ## Source
 
 The repository ships a short, standalone starting point you can copy: [`example.qmd`](https://github.com/mcanouil/quarto-revealjs-spotlight/blob/main/example.qmd).
