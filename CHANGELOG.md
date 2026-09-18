@@ -5,6 +5,7 @@
 ### Documentation
 
 - docs: Serve the extension's social card as the Open Graph image, so a shared link shows the card rather than the first image on the page. (#27)
+- docs: Add worked examples for the spotlight cursor, for keeping the text of a deck selectable, for starting outside presentation mode, and for a spotlight that stays on.
 
 ## 1.2.2 (2026-08-02)
 
