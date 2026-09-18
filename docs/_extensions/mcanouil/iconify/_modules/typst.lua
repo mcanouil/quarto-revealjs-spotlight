@@ -134,17 +134,28 @@ function M.build_query(params)
   return table.concat(parts, '&')
 end
 
+--- Iconify icon sets and icon names are documented as lowercase
+--- alphanumerics and hyphens; anything else (`/`, `:`, `@`, `..`, `?`, `#`,
+--- whitespace, …) is rejected so a crafted value cannot break out of the
+--- intended path segment and redirect the fetch to another host or path.
+--- @type string
+local ICON_PART_PATTERN = '^[%w][%w%-]*$'
+
 --- Assemble the Iconify SVG API URL for an icon and query.
 --- @param set string Icon set (prefix)
 --- @param icon string Icon name
 --- @param query string Pre-built query string (may be empty)
---- @return string
+--- @return string|nil `nil` when `set` or `icon` is not a safe path segment
 function M.build_api_url(set, icon, query)
-  local url = API_BASE .. set .. '/' .. icon .. '.svg'
-  if query ~= '' then
-    url = url .. '?' .. query
+  if not str.is_empty(set) and not str.is_empty(icon) and
+      set:match(ICON_PART_PATTERN) and icon:match(ICON_PART_PATTERN) then
+    local url = API_BASE .. set .. '/' .. icon .. '.svg'
+    if query ~= '' then
+      url = url .. '?' .. query
+    end
+    return url
   end
-  return url
+  return nil
 end
 
 --- Deterministic cache file name for an icon variant.
@@ -292,7 +303,17 @@ function M.ensure_cached(set, icon, query, options)
     return typst_path
   end
 
-  local data = fetch_svg(M.build_api_url(set, icon, query))
+  local api_url = M.build_api_url(set, icon, query)
+  if api_url == nil then
+    log.log_warning(
+      EXTENSION_NAME,
+      'Icon "' .. tostring(set) .. ':' .. tostring(icon) .. '" is not a valid ' ..
+      'Iconify set/name; refusing to fetch.'
+    )
+    return nil
+  end
+
+  local data = fetch_svg(api_url)
   if data == nil then
     return nil
   end
